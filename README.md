@@ -28,13 +28,13 @@ Nunca pongas la `service_role` en `.env` ni en archivos del frontend.
 2. Ve a SQL Editor y ejecuta todo `supabase/schema.sql`.
 3. Ve a Authentication > Users y crea dos usuarios con correo y contraseña:
    - tu cuenta de administrador
-   - la cuenta participante para Geni/Raquel
+   - la cuenta participante para Raquel
 4. Copia el UUID de cada usuario.
 5. En SQL Editor ejecuta (reemplaza los UUID):
 ```sql
 insert into public.profiles(id,role,display_name) values
 ('UUID_DE_TU_ADMIN','admin','Administrador'),
-('UUID_DE_PARTICIPANTE','participant','Geni o Raquel');
+('UUID_DE_PARTICIPANTE','participant','Raquel');
 ```
 6. En Project Settings > API copia Project URL y la clave pública anon/publishable al `.env`.
 

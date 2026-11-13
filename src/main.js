@@ -198,7 +198,7 @@ function renderBirthday() {
   const locked = Boolean(profile.gift_choice);
   render(`<main class="birthday-shell">
     <div class="sparkle s1">✦</div><div class="sparkle s2">♡</div>
-    <header class="topline"><span>PARA ${escapeHtml(CONFIG.displayName.toUpperCase())}</span><button id="music" class="music-btn">♫ Música: apagada</button></header>
+    <header class="topline"><span>PARA ${escapeHtml(CONFIG.displayName.toUpperCase())}</span><span class="music-btn">♫ Dale play para escuchar 💗</span></header>
     <section class="hero">
       <div class="hero-flower">🌸</div><div class="eyebrow">UN DÍA MUY ESPECIAL</div>
       <h1>${escapeHtml(CONFIG.title)}</h1><p>${escapeHtml(CONFIG.subtitle)}</p>
@@ -215,15 +215,9 @@ function renderBirthday() {
     <section id="gift-section" class="gift-card hidden"></section>
     <footer>Hecho especialmente para ti · 💗</footer>
   </main>
-  <audio id="bg-audio" loop src="${escapeHtml(CONFIG.musicFile)}"></audio>`);
-  audio = document.querySelector('#bg-audio');
-  document.querySelector('#music').addEventListener('click', async () => {
-    try {
-      if (!musicOn) { await audio.play(); musicOn = true; }
-      else { audio.pause(); musicOn = false; }
-      document.querySelector('#music').textContent = musicOn ? '♫ Música: encendida' : '♫ Música: apagada';
-    } catch { showToast('Agrega tu archivo de música en public/music/cancion.mp3'); }
-  });
+     
+  </main>`);
+
   document.querySelector('#open-letter').addEventListener('click', () => {
     document.querySelector('#letter-section').classList.remove('hidden');
     document.querySelector('#letter-section').scrollIntoView({behavior:'smooth'});
